@@ -2,7 +2,7 @@ var http = require('http');
 var cheerio = require('cheerio');
 var async = require('async');
 
-module.exports = function (issueNumber. callback) {
+module.exports = function (issueNumber, callback) {
 
   function getHtml(cb) {
     var url = 'http://javascriptweekly.com/issues/' + issueNumber;
