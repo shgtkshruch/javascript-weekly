@@ -19,7 +19,7 @@ describe("JavaScript Weekly", function () {
     describe('article', function () {
       var article;
       before(function () {
-        article = issue.articles[5];
+        article = issue.articles[4];
       });
 
       it('article.title should return correct title.', function () {
@@ -43,7 +43,7 @@ describe("JavaScript Weekly", function () {
     describe('brief', function () {
       var brief;
       before(function () {
-        brief = issue.brieies[0];
+        brief = issue.brieves[0];
       });
 
       it('brief.title should return correct title.', function () {
@@ -85,7 +85,7 @@ describe("JavaScript Weekly", function () {
     describe('brief', function () {
       var brief;
       before(function () {
-        brief = issue.brieies[2];
+        brief = issue.brieves[2];
       });
 
       it('brief.title should return correct title.', function () {

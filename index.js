@@ -25,26 +25,27 @@ module.exports = function (issueNumber, callback) {
 
     var main = $('.issue-html .container').eq(1);
     var heading = $(main).children().eq(0).find('.gowide.lonmo span').text();
+
     issue.title = heading.match(/[A-Za-z]+\s[0-9]+\s/)[0].trim();
     issue.date = heading.match(/[A-Za-z]+\s[0-9]+\,\s[0-9]+\n$/)[0].trim();
 
     var articles = [];
     $(main).children().eq(1).find('table .gowide > tr > td').each(function (i, elem) {
       var article = _getArticle($, this);
-      articles.push(article);
+      article ? articles.push(article) : null;
     });
     issue.articles = articles;
 
-    var brieies = [];
+    var brieves = [];
     $(main).children().eq(1).find('p').each(function (i, elem) {
       if ($(this).text() !== 'In brief') return;
 
       $(this).next().find('li').each(function (i, elem) {
         var brief = _getBrief($, this);
-        brieies.push(brief);
+        brieves.push(brief);
       });
     });
-    issue.brieies = brieies;
+    issue.brieves = brieves;
 
     cb(null, issue);
   }
@@ -54,7 +55,7 @@ module.exports = function (issueNumber, callback) {
     var source = $(that).children().eq(1).text().trim();
 
     if (source.search(/sponsored/i) !== -1) {
-      return; 
+      return false;
     }
 
     article.title = $(that).find('a').text();
