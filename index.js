@@ -36,9 +36,13 @@ module.exports = function (issueNumber, callback) {
     issue.articles = articles;
 
     var brieies = [];
-    $(main).children().eq(1).find('ul').last().find('li').each(function (i, elem) {
-      var brief = _getBrief($, this);
-      brieies.push(brief);
+    $(main).children().eq(1).find('p').each(function (i, elem) {
+      if ($(this).text() !== 'In brief') return;
+
+      $(this).next().find('li').each(function (i, elem) {
+        var brief = _getBrief($, this);
+        brieies.push(brief);
+      });
     });
     issue.brieies = brieies;
 
