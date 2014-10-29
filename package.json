@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/shgtkshruch/javascript-weekly/issues"
   },
-  "homepage": "https://github.com/shgtkshruch/javascript-weekly"
+  "homepage": "https://github.com/shgtkshruch/javascript-weekly",
+  "dependencies": {
+    "async": "^0.9.0",
+    "cheerio": "^0.17.0"
+  }
 }
